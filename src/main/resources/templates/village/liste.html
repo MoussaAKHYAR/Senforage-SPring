@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<h1>liste des Villages</h1>
+		
+		<ul th:each="l:${liste_villages}">
+			<li th:text="${l.id}"></li>
+			<li th:text="${l.nomVillage}"></li>
+		</ul>
+		
+	</body>
+</html>
