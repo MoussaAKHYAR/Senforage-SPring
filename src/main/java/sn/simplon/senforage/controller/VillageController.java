@@ -3,6 +3,7 @@ package sn.simplon.senforage.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -20,7 +21,7 @@ public class VillageController {
 	
 	@GetMapping("/Village")
 	public String liste(Model model) {
-		model.addAttribute("liste_villages", villagedao.findAll());
+		model.addAttribute("liste_villages", villagedao.findAll(Sort.by(Sort.Direction.ASC,"id")));
 		return "village/liste";
 	}
 	
