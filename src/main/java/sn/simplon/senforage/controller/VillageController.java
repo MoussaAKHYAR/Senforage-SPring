@@ -19,7 +19,7 @@ public class VillageController {
 	@Autowired
 	private IVillage villagedao;
 	
-	@GetMapping("Village/liste")
+	@GetMapping("/Village")
 	public String liste(Model model) {
 		model.addAttribute("liste_villages", villagedao.findAll());
 		return "village/liste";

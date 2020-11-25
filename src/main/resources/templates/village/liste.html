@@ -1,15 +1,74 @@
-<html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8" />
-		<title>Insert title here</title>
-	</head>
-	<body>
-		<h1>liste des Villages</h1>
-		
-		<ul th:each="l:${liste_villages}">
-			<li th:text="${l.id}"></li>
-			<li th:text="${l.nomVillage}"></li>
-		</ul>
-		
-	</body>
-</html>
+<div xmlns:th="http://www.thymeleaf.org" th:insert="header :: header"></div>
+<div class="row">
+	<div class="col-md-8">
+		<div class="card">
+			<div class="card-header">
+
+				<div class="card-title">Liste des villages</div>
+				<div class="card-body">
+					<table class="table table-head-bg-primary">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Nom du village</th>
+								<th scope="col">Action</th>
+								<th scope="col">Action</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<th:block xmlns:th="http://www.thymeleaf.org"
+									th:each="l:${liste_villages}">
+
+									<td th:text="${l.id}"></td>
+									<td th:text="${l.nomVillage}"></td>
+
+									<td>
+										<!-- <a class="btn btn-default btn-sm"
+										th:href="@{/Village/delete(id=${l.id)}"> --> <i
+											class="fa fa-edit"></i> Supprimer
+									<!-- </a> -->
+									</td>
+									<td>
+										<!-- <a class="btn btn-default btn-sm"
+										th:href="@{/Village/edit(id=${l.id)}"> --> <i
+											class="fa fa-edit"></i> Editer
+									<!-- </a> -->
+									</td>
+								</th:block>
+							</tr>
+
+
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card card-secondary">
+			<div class="card-header">
+				<div class="card-title">Ajouter un village</div>
+
+				<div>
+					<form xmlns:th="http://www.thymeleaf.org"
+						th:action="@{/addVillage}" th:object="${village}" method="post">
+						<div class="form-group">
+							<label>Nom du village</label> <input type="text"
+								placeholder="nom du village" th:field="*{nomVillage}" required />
+						</div>
+
+						<div class="form-group">
+							<input class="btn btn-success" type="submit" value="Enregistrer" />
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+<div xmlns:th="http://www.thymeleaf.org" th:insert="footer :: footer"></div>
