@@ -17,29 +17,28 @@
 						</thead>
 
 						<tbody>
-							<tr>
-								<th:block xmlns:th="http://www.thymeleaf.org"
-									th:each="l:${liste_villages}">
+							<th:block xmlns:th="http://www.thymeleaf.org"
+								th:each="l:${liste_villages}">
+
+								<tr>
 
 									<td th:text="${l.id}"></td>
 									<td th:text="${l.nomVillage}"></td>
 
 									<td>
-										<!-- <a class="btn btn-default btn-sm"
-										th:href="@{/Village/delete(id=${l.id)}"> --> <i
-											class="fa fa-edit"></i> Supprimer
-									<!-- </a> -->
+										<a class="btn btn-default btn-sm"
+										th:href="@{/delete(id=${l.id})}"> <i
+										class="fa fa-edit"></i> Supprimer </a>
 									</td>
 									<td>
 										<!-- <a class="btn btn-default btn-sm"
 										th:href="@{/Village/edit(id=${l.id)}"> --> <i
-											class="fa fa-edit"></i> Editer
-									<!-- </a> -->
+										class="fa fa-edit"></i> Editer <!-- </a> -->
 									</td>
-								</th:block>
-							</tr>
 
+								</tr>
 
+							</th:block>
 						</tbody>
 					</table>
 				</div>
@@ -53,17 +52,19 @@
 				<div class="card-title">Ajouter un village</div>
 
 				<div>
-					<form xmlns:th="http://www.thymeleaf.org"
-						th:action="@{/addVillage}" th:object="${village}" method="post">
-						<div class="form-group">
-							<label>Nom du village</label> <input type="text"
-								placeholder="nom du village" th:field="*{nomVillage}" required />
-						</div>
+					<th:block xmlns:th="http://www.thymeleaf.org">
+						<form th:action="@{/addVillage}" th:object="${village}"
+							method="post">
+							<div class="form-group">
+								<label>Nom du village</label> <input type="text"
+									name="nomVillage" required />
+							</div>
 
-						<div class="form-group">
-							<input class="btn btn-success" type="submit" value="Enregistrer" />
-						</div>
-					</form>
+							<div class="form-group">
+								<input class="btn btn-success" type="submit" value="Enregistrer" />
+							</div>
+						</form>
+					</th:block>
 				</div>
 
 			</div>
