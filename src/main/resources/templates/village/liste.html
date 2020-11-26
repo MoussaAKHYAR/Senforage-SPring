@@ -25,11 +25,10 @@
 									<td th:text="${l.id}"></td>
 									<td th:text="${l.nomVillage}"></td>
 
-									<td>
-										<a class="btn btn-default btn-sm"
-										th:href="@{/delete(id=${l.id})}"> <i
-										class="fa fa-edit"></i> Supprimer </a>
-									</td>
+									<td><a class="btn btn-default btn-sm"
+										th:href="@{/delete(id=${l.id})}"> <i class="fa fa-edit"></i>
+											Supprimer
+									</a></td>
 									<td>
 										<!-- <a class="btn btn-default btn-sm"
 										th:href="@{/Village/edit(id=${l.id)}"> --> <i
