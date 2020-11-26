@@ -46,13 +46,14 @@
 			</div>
 		</div>
 	</div>
-<!-- 	<div class="col-md-4">
+	<div class="col-md-4">
 		<div class="card card-secondary">
 			<div class="card-header">
 				<div class="card-title">Ajouter un client</div>
 				<div class="card-category">Formulaire</div>
 				<div>
-					<form action="Client" method="post">
+				<th:block xmlns:th="http://www.thymeleaf.org">
+					<form th:action="@{/addClient}" th:object="${village}" method="post">
 						<div class="form-group">
 							<label>Nom</label> <input class="form-control" type="text"
 								name="nomDeFamille">
@@ -65,10 +66,7 @@
 							<label>Village</label> <select name="village"
 								class="form-control">
 								<option value="opt1">Choisir un village</option>
-								<c:forEach items="${villages}" var="village">
-									<option value="${village.id}">${village.nomVillage}</option>
-									<br>
-								</c:forEach>
+								<option th:each="village: ${liste_villages}" th:value="${village.id}" th:text="${village.nomVillage}"></option>
 							</select>
 						</div>
 						<div class="form-group">
@@ -79,11 +77,12 @@
 							<input class="btn btn-success" type="submit" value="Enregistrer" />
 						</div>
 					</form>
+					</th:block>
 				</div>
 
 			</div>
 		</div>
 
-	</div> -->
+	</div>
 </div>
 <div xmlns:th="http://www.thymeleaf.org" th:insert="footer :: footer"></div>
